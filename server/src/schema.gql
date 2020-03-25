@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CreateQuestionDto {
+  id: String!
+  question: String!
+  options: [OptionDto]
+  answer: String!
+  explanation: String!
+  tags: [String]
+}
+
+input inputOption {
+  optionKey: String!
+  text: String!
+}
+
+input inputQuestion {
+  question: String!
+  options: [inputOption]
+  answer: String!
+  explanation: String!
+  tags: [String]
+}
+
+type Mutation {
+  createQuestion(data: inputQuestion!): CreateQuestionDto!
+}
+
+type OptionDto {
+  optionKey: String!
+  text: String!
+}
+
+type Query {
+  getQuestions: [CreateQuestionDto!]!
+  getQuestionById(id: String!): CreateQuestionDto!
+}
